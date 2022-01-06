@@ -9,12 +9,17 @@ public class Connectivity {
     private final Connection connection;
 
     public Connectivity() throws ClassNotFoundException, SQLException {
-        Class.forName("com.mysql.cj.jdbc.Driver");
-        connection = DriverManager.getConnection(
+        Class.forName("com.mysql.cj.jdbc.Driver"); // -> jdbc
+
+        // mysql -u root -p
+        // here you are giving username and password for connectivity
+        connection = DriverManager.getConnection( // -> jdbc
                 "jdbc:mysql://localhost:3306/java_backend_training_db",
                 "root",
                 "password"
-        );
+        );// it loads the driver into memory
+        connection.setAutoCommit(false);
+        System.out.println("---- Connected to MySQL Successfully ----");
     }
 
     public Connection getConnection() {
