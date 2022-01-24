@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="d0defe66-80e5-4586-acf4-b83b0e42cac9" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/.name" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../abc-microservice/src/main/java/com/ani/abc/abc/config/WebConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../abc-microservice/src/main/java/com/ani/abc/abc/controller/AbcController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../abc-microservice/src/main/java/com/ani/abc/abc/dto/Pqr.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dockerized-app/src/main/java/com/ani/docker/controller/AppController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dockerized-app/src/main/java/com/ani/docker/domain/App.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../dockerized-app/src/test/java/com/ani/docker/controller/AppControllerTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../gateway-app/src/test/java/com/ani/gateway/GatewayApplicationTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../healthcare-appointment/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../healthcare-appointment/src/main/java/com/pooja/healthcare/controller/AppointmentController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../healthcare-appointment/src/main/java/com/pooja/healthcare/domain/Appointment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../healthcare-appointment/src/main/java/com/pooja/healthcare/dto/AppResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../healthcare-appointment/src/main/java/com/pooja/healthcare/dto/AppointDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../healthcare-appointment/src/main/java/com/pooja/healthcare/dto/AppointmentDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../healthcare-appointment/src/main/java/com/pooja/healthcare/repository/AppointmentRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../healthcare-appointment/src/main/java/com/pooja/healthcare/service/AppointmentService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../healthcare-appointment/src/main/java/com/pooja/healthcare/service/AppointmentServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../healthcare-appointment/src/test/java/com/pooja/healthcare/controller/AppointmentControllerTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../healthcare-appointment/src/test/java/com/pooja/healthcare/domain/AppointmentTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../healthcare-appointment/src/test/java/com/pooja/healthcare/repository/AppointmentRepositoryTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../healthcare-appointment/src/test/java/com/pooja/healthcare/service/AppointmentServiceTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ani/pqr/controller/PqrController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ani/pqr/domain/Pqr.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-web-mvc-basic/WebContent/index.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-web-mvc-basic/src/main/java/com/ani/config/AppConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-web-mvc-basic/src/main/java/com/ani/controller/HelloWorldController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../spring-web-mvc-basic/src/main/java/com/ani/web/WebAppInitializer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../unit-testing-demo/src/test/java/com/ani/testing/integration/AppIntegrationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../case-study-week1/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../case-study-week1/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../case-study-week1/src/main/java/db/Connectivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../case-study-week1/src/main/java/db/Connectivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../case-study-week1/src/main/java/menu/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/../case-study-week1/src/main/java/menu/Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../case-study-week1/src/main/java/service/DbService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../case-study-week1/src/main/java/service/DbService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../orm-demo/src/main/java/com/ani/orm/contoller/CarController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../orm-demo/src/main/java/com/ani/orm/controller/CarController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../service-registery/src/main/java/com/ani/registery/ServiceRegistryApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../service-registery/src/main/java/com/ani/registery/ServiceRegistryApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../singleton/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../singleton/src/main/java/singleton/Car.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../singleton/src/main/java/singleton/CarSingleton.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../singleton/src/test/java/CarSingletonTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../week-bank-rest-app/src/main/java/com/weektwo/casestudy/controller/BankController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../week-bank-rest-app/src/main/java/com/weektwo/casestudy/controller/BankController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../week-bank-rest-app/src/main/java/com/weektwo/casestudy/repository/BankRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../week-bank-rest-app/src/main/java/com/weektwo/casestudy/repository/BankRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../week-bank-rest-app/src/main/java/com/weektwo/casestudy/service/BankServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../week-bank-rest-app/src/main/java/com/weektwo/casestudy/service/BankServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../week-bank-rest-app/src/main/resources/logback-spring.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../week-bank-rest-app/src/main/resources/logback-spring.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="Use Maven wrapper" />
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="23ol8u7ITlGrlYuSz3Wrq0kOWrv" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="JetRunConfigurationType">
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="d0defe66-80e5-4586-acf4-b83b0e42cac9" name="Changes" comment="" />
+      <created>1642408168035</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1642408168035</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
