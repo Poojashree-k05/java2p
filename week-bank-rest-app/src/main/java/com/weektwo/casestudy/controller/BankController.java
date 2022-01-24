@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RequestMapping("/bank")
-@RestController // = @Component
+@RestController
 public class BankController {
 
     private final Logger logger = LoggerFactory.getLogger(BankController.class);
@@ -23,7 +23,8 @@ public class BankController {
     @Autowired
     private BankService service;
 
-    @PostMapping // POST -> http://localhost:8080/bank/
+
+    @PostMapping("/add") // POST -> http://localhost:8080/bank/
     public ResponseEntity<AppResponse<Integer>> createBankAccount(@RequestBody BankAccount ba) {
 
         logger.info("creating bank account");
@@ -37,16 +38,24 @@ public class BankController {
         return ResponseEntity.ok(response);
     }
 
-    @PutMapping("/withdraw") // PUT -> http://localhost:8080/123456
+    //completed
+    @PutMapping("/withdraw") // PUT -> http://localhost:8080/bank/withdraw
     public ResponseEntity<AppResponse<Double>> withdrawMoney(@RequestBody BankAccount ba) {
         try {
             double amt = service.withdraw(ba.getAcNum(), ba.getBalance());
             var response = new AppResponse<Double>();
-            response.setMsg("money withdrawn successfully");
-            response.setSts("success");
-            response.setBody(amt);
-            return new ResponseEntity<>(response, HttpStatus.OK);
-        }catch (InvalidAmountException e) {
+            if(amt==0){
+                response.setSts("fail");
+                response.setBody(0.0);
+                return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
+            }
+            else {
+                response.setMsg("money withdrawn successfully");
+                response.setSts("success");
+                response.setBody(amt);
+                return new ResponseEntity<>(response, HttpStatus.OK);
+            }
+        } catch (InvalidAmountException e) {
             var response = new AppResponse<Double>();
             response.setMsg(e.getMessage());
             response.setSts("fail");
@@ -55,22 +64,51 @@ public class BankController {
         }
     }
 
+    //Completed
     @PutMapping("/deposit") // PUT -> http://localhost:8080/bank/deposit
     public ResponseEntity<AppResponse<Double>> depositMoney(@RequestBody BankAccount ba) {
         try {
             double amt = service.deposit(ba.getAcNum(), ba.getBalance());
             var response = new AppResponse<Double>();
-            response.setMsg("money deposit successfully");
-            response.setSts("success");
-            response.setBody(amt);
-            return new ResponseEntity<>(response, HttpStatus.ACCEPTED);
-        }catch (InvalidAmountException e) {
+            if(amt==0){
+                response.setSts("fail");
+                response.setBody(0.0);
+                return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
+            }
+            else {
+                response.setMsg("money deposit successfully");
+                response.setSts("success");
+                response.setBody(amt);
+                return new ResponseEntity<>(response, HttpStatus.ACCEPTED);
+            }
+        } catch (InvalidAmountException e) {
             var response = new AppResponse<Double>();
             response.setMsg(e.getMessage());
             response.setSts("fail");
             response.setBody(0.0);
             return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
         }
+    }
+
+
+    @PutMapping("/activate")
+    public ResponseEntity<AppResponse<Boolean>> activate(@RequestBody BankAccount ba) {
+        boolean stat = service.activateAccount(ba.getAcNum());
+        var response = new AppResponse<Boolean>();
+        response.setMsg("Account Activated");
+        response.setSts("success");
+        response.setBody(stat);
+        return new ResponseEntity<>(response, HttpStatus.ACCEPTED);
+    }
+
+    @PutMapping("/deActivate")
+    public ResponseEntity<AppResponse<Boolean>> Deactivate(@RequestBody BankAccount ba) {
+        boolean stat = service.deActivateAccount(ba.getAcNum());
+        var response = new AppResponse<Boolean>();
+        response.setMsg("Account DeActivated");
+        response.setSts("success");
+        response.setBody(stat);
+        return new ResponseEntity<>(response, HttpStatus.ACCEPTED);
     }
 
     @GetMapping("/{prefix}")
@@ -82,4 +120,53 @@ public class BankController {
 
         return ResponseEntity.ok(response);
     }
+
+    @GetMapping()
+    public List<BankAccount> findAllCars() {
+        return service.findAllBankAccounts();
+    }
+
+
+    @GetMapping("/num/{acNum}")
+    public ResponseEntity<AppResponse<List<BankAccount>>> accountsStart(@PathVariable Long acNum) {
+        var response = new AppResponse<List<BankAccount>>();
+        response.setMsg("account list");
+        response.setSts("success");
+        response.setBody((List<BankAccount>) service.findAccountByAcNum(acNum));
+
+        return ResponseEntity.ok(response);
+    }
+
+
+    @PutMapping("/transfer") // PUT -> http://localhost:8080/bank/transfer
+    public ResponseEntity<AppResponse<Double>> transfer(@RequestBody BankAccount ba) {
+        try {
+            double amt = service.transferMoney(ba.getAcNum(), ba.getAcNum(), ba.getBalance());
+            var response = new AppResponse<Double>();
+            if (amt == 0) {
+                response.setSts("fail");
+                response.setBody(0.0);
+                return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
+            } else {
+
+                response.setMsg("money transfer successfully");
+                response.setSts("success");
+                response.setBody(amt);
+                return new ResponseEntity<>(response, HttpStatus.ACCEPTED);
+            }
+        } catch (InvalidAmountException e) {
+            var response = new AppResponse<Double>();
+            response.setMsg(e.getMessage());
+            response.setSts("fail");
+            response.setBody(0.0);
+            return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
+        }
+    }
+
+
+    @PutMapping ("/update")// PUT - http://localhost:8080/bank/update
+    public BankAccount updateAccount(@RequestBody BankAccount updatedAccount) {
+        return updatedAccount;
+    }
+
 }

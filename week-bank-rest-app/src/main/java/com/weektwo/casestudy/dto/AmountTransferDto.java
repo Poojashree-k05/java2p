@@ -5,6 +5,7 @@ public class AmountTransferDto {
     private Long dstAc;
     private Double amt;
 
+
     public Long getSrcAc() {
         return srcAc;
     }
@@ -28,4 +29,6 @@ public class AmountTransferDto {
     public void setAmt(Double amt) {
         this.amt = amt;
     }
+
+
 }

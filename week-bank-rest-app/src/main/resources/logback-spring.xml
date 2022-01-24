@@ -13,7 +13,7 @@
         <appender-ref ref="Console" />
     </root>
 
-    <logger name="com.weektwo.casestudy" level="trace" additivity="false">
+    <logger name="com.week-two.case-study" level="trace" additivity="false">
         <appender-ref ref="Console" />
     </logger>
 

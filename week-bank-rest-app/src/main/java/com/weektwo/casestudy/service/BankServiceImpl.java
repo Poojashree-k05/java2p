@@ -39,20 +39,51 @@ public class BankServiceImpl implements BankService{
 
     @Override
     public boolean activateAccount(Long acNum) {
-        return false;
+        Optional<BankAccount> op = repository.findById(acNum);
+        BankAccount baOld = op.orElseThrow();
+        boolean existingStatus = baOld.getStatus();
+        boolean newStatus = Boolean.parseBoolean("true");
+        BankAccount baNew = new BankAccount();
+        baNew.setBalance(baOld.getBalance());
+        baNew.setAcCrDt(baOld.getAcCrDt());
+        baNew.setStatus(true);
+        baNew.setAcHldNm(baOld.getAcHldNm());
+        baNew.setAcNum(baOld.getAcNum());
+        repository.save(baNew);
+        return baNew.getStatus();
     }
 
     @Override
     public boolean deActivateAccount(Long acNum) {
-        return false;
+        Optional<BankAccount> op = repository.findById(acNum);
+        BankAccount baOld = op.orElseThrow();
+        boolean existingStatus = baOld.getStatus();
+        boolean newStatus = Boolean.parseBoolean("false");
+        BankAccount baNew = new BankAccount();
+        baNew.setBalance(baOld.getBalance());
+        baNew.setAcCrDt(baOld.getAcCrDt());
+        baNew.setStatus(false);
+        baNew.setAcHldNm(baOld.getAcHldNm());
+        baNew.setAcNum(baOld.getAcNum());
+        repository.save(baNew);
+        return baNew.getStatus();
     }
 
     @Override
     public double withdraw(Long acNum, double amt) throws InvalidAmountException {
-        logger.info("Withdrawing Money from "+acNum +" with Amount  "+amt);
-        logger.warn("Make sure amount possittive");
-        repository.withdraw(amt, acNum);
-        return amt;
+        if (amt <= 0) throw new InvalidAmountException("Amount Should be Non Zero Positive " + amt);
+        Optional<BankAccount> op = repository.findById(acNum);
+        BankAccount baOld = op.orElseThrow();
+        double existingBalance = baOld.getBalance();
+        double newBalance = existingBalance - amt;
+        BankAccount baNew = new BankAccount();
+        baNew.setBalance(newBalance);
+        baNew.setAcCrDt(baOld.getAcCrDt());
+        baNew.setStatus(baOld.getStatus());
+        baNew.setAcHldNm(baOld.getAcHldNm());
+        baNew.setAcNum(baOld.getAcNum());
+        repository.save(baNew);
+        return baNew.getBalance();
     }
 
     @Override
@@ -89,13 +120,14 @@ public class BankServiceImpl implements BankService{
 
     @Override
     public BankAccount findAccountByAcNum(Long acNum) {
-        return null;
+        return repository.getById(acNum);
     }
 
     @Override
     public List<BankAccount> findAllBankAccounts() {
         return null;
     }
+
 
     @Override
     public List<BankAccount> namesStartsWith(String prefix) {
