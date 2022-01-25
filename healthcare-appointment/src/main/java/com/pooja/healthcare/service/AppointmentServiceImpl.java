@@ -28,23 +28,22 @@ public class AppointmentServiceImpl implements AppointmentService{
         repository.save(app);
         return dto;
     }
-    @Override
-    public LocalDate setAppDate(Long id, LocalDate appointment) {
-        Optional<Appointment> op =repository.findById(id);
-        Appointment apOld = op.orElseThrow();
-        LocalDate existingAppointment = apOld.getAppDate();
-        LocalDate newAppointment = appointment;
-        Appointment apNew = new Appointment();
-        apNew.setId(apOld.getId());
-        apNew.setType(apOld.getType());
-        apNew.setPldDate(apOld.getPldDate());
-        apNew.setAppDate(apOld.getAppDate());
-        apNew.setDocNm(apOld.getDocNm());
-        repository.save(apNew);
-        return apNew.getAppDate();
-    }
 
     @Override
+    public LocalDate updateAppDate(Long id, LocalDate appDate, String type) {
+        Appointment op = repository.getById(id);
+        LocalDate newAppointment=appDate;
+        Appointment baNew = new Appointment();
+        baNew.setAppDate(newAppointment);
+        baNew.setId(op.getId());
+        baNew.setType(op.getType());
+        baNew.setPldDate(op.getPldDate());
+        baNew.setDocNm(op.getDocNm());
+        repository.save(baNew);
+        return baNew.getAppDate();
+    }
+
+        @Override
     public String cancelAppointment(Long id,String type){
         Optional<Appointment> op = repository.findById(id);
         Appointment baOld = op.orElseThrow();
@@ -94,4 +93,5 @@ public class AppointmentServiceImpl implements AppointmentService{
         }
         return appDto;
     }
+
 }

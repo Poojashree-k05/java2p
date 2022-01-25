@@ -32,15 +32,15 @@ import java.util.List;
             return ResponseEntity.ok(response);
         }
 
-        @PutMapping("/SetAppointment")
-        public ResponseEntity<AppResponse<LocalDate>> activate(@RequestBody AppointmentDto dto){
-            LocalDate stat = service.setAppDate(dto.getId(),dto.getAppDate());
-            var response = new AppResponse<LocalDate>();
-            response.setStatus("success");
-            response.setBody(stat);
-            return new ResponseEntity<>(response, HttpStatus.ACCEPTED);
-        }
-
+    @PutMapping("/updateAppoint")
+    public ResponseEntity<AppResponse<String>> updateAppDate(@RequestBody AppointmentDto dto) {
+        LocalDate stat = service.updateAppDate(dto.getId(), dto.getAppDate(),dto.getType());
+        var response = new AppResponse<String>();
+        response.setMessage("Appointment is update");
+        response.setStatus("success");
+        response.setBody(String.valueOf(stat));
+        return new ResponseEntity<>(response, HttpStatus.ACCEPTED);
+    }
          @PutMapping("/cancelAppointment")
          public ResponseEntity<AppResponse<String>> cancelAppointment(@RequestBody AppointmentDto dto) {
              String stat = service.cancelAppointment(dto.getId(), dto.getType());

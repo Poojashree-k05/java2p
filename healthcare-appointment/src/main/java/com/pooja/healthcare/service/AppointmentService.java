@@ -10,9 +10,10 @@ public interface AppointmentService {
 
     public AppointmentDto createAppointment(AppointmentDto dto);
 
-    LocalDate setAppDate(Long id, LocalDate appointment);
 
-    String cancelAppointment(Long id,String type);
+    LocalDate updateAppDate(Long id, LocalDate appDate,String type);
+
+    String cancelAppointment(Long id, String type);
 
     List<AppointmentDto> findAppointmentByType(String type);
 
