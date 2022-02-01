@@ -2,6 +2,9 @@ package com.pooja.healthcare.service;
 
 import com.pooja.healthcare.domain.Appointment;
 import com.pooja.healthcare.dto.AppointmentDto;
+import com.pooja.healthcare.exception.AppointementAlreadyExisting;
+import com.pooja.healthcare.exception.DateOutOfBound;
+import com.pooja.healthcare.exception.InvalidIdException;
 import com.pooja.healthcare.repository.AppointmentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -43,20 +46,12 @@ public class AppointmentServiceImpl implements AppointmentService{
         return baNew.getAppDate();
     }
 
-        @Override
-    public String cancelAppointment(Long id,String type){
-        Optional<Appointment> op = repository.findById(id);
-        Appointment baOld = op.orElseThrow();
-        String existingType = baOld.getType();
-        String newType= type;
-        Appointment baNew = new Appointment();
-        baNew.setAppDate(baOld.getAppDate());
-        baNew.setId(baOld.getId());
-        baNew.setType(newType);
-        baNew.setPldDate(baOld.getPldDate());
-        baNew.setDocNm(baOld.getDocNm());
-        repository.save(baNew);
-        return baNew.getType();
+    @Override
+    public void deleteAppointment(Long id) throws InvalidIdException {
+        if(repository.getById(id).getId().equals(id)){
+            repository.deleteById(id);
+        }
+        else throw new InvalidIdException("Enter correct id" + id);
     }
 
     @Override

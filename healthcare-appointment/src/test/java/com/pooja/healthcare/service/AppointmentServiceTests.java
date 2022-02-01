@@ -9,6 +9,14 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
 public class AppointmentServiceTests {
+
+    @DisplayName("Domain : Checking Object Creation")
+    @Test
+    void testObjectCreation() {
+        var appointment = new Appointment();
+        Assertions.assertNotNull(appointment);
+    }
+
     @Autowired
     private AppointmentServiceImpl service;
     @DisplayName("service : Appointment by type :")

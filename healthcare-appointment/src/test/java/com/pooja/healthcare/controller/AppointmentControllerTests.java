@@ -22,14 +22,35 @@ public class AppointmentControllerTests {
     public void testGetMethod(){
 
         String url = "http://"+"localhost"+":"+port+"/appointment";
-        Appointment appointment = template.getForObject(url, Appointment.class);
+        Appointment appointment = template.getForObject(url,Appointment.class);
         Assertions.assertNotNull(appointment);
     }
 
-    @DisplayName("Put - Appointment - deleting a  appointment")
+    @DisplayName("Delete - Appointment - deleting a  appointment")
     @Test
     public void testDeleteMethod(){
         String url = "http://" + "localhost"+":"+port+"/appointment";
         template.delete(url);
+    }
+    @DisplayName("Put - Appointment - updating a  appointment")
+    @Test
+    public void testUpdateMethod(){
+        String url = "http://" + "localhost"+":"+port+"/appointment";
+        Appointment appointment = template.getForObject(url,Appointment.class);
+        Assertions.assertNotNull(appointment);
+    }
+    @DisplayName("Get - Appointment -appointment by Type")
+    @Test
+    public void testTypeMethod(){
+        String url = "http://" + "localhost"+":"+port+"/appointment";
+        Appointment appointment = template.getForObject(url,Appointment.class);
+        Assertions.assertNotNull(appointment);
+    }
+    @DisplayName("Get - Appointment - appointment date between Type")
+    @Test
+    public void testListMethod(){
+        String url = "http://" + "localhost"+":"+port+"/appointment";
+        Appointment appointment = template.getForObject(url,Appointment.class);
+        Assertions.assertNotNull(appointment);
     }
 }
